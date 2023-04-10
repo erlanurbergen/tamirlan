@@ -30,6 +30,13 @@ public class ChangeRectangle {
     }
 
     public double getArea() {
+        if (width <= 0 || height <= 0) {
+            try {
+                throw new Exception("Значения не корректны");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return width * height;
     }
 

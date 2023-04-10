@@ -28,6 +28,9 @@ public class Artist {
     }
 
     public void showGenre(Genre genre) {
-        System.out.println(genre);
+        for (Record record : records) {
+            if (record.getGenre() == genre)
+                System.out.println(record);
+        }
     }
 }
