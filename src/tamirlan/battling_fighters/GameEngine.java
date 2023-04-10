@@ -10,10 +10,11 @@ public class GameEngine {
         System.out.println(first);
         System.out.println(second);
         while (!first.isDead() || !second.isDead()) {
+            System.out.println("------------------------------");
             if (first.calculateAttackScore() > second.calculateAttackScore()) {
                 if (first.isLucky()) {
                 System.out.println(first.getName() + " hits " + second.getName() + " stats are: ");
-                second.takeDamage(second.calculateDamage(first));
+                second.takeDamage(second.calculateDamage(first)); // отнимает урон у второго
                 System.out.println(first);
                 System.out.println(second);
                 if (second.isDead())

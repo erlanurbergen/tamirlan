@@ -52,6 +52,8 @@ public class LuckyFighter extends Fighter{
 
 
 
+
+
 //    int checkStrategy() {
 //        int number = 0;
 //        if (strategy == Strategy.DEFENSIVE) {
@@ -94,21 +96,30 @@ public class LuckyFighter extends Fighter{
 //        return number;
 //    }
 
-    @Override
-    public void takeDamage(int damage) {
-        if (strategy == Strategy.AGGRESSIVE) {
-            super.takeDamage(damage + 1);
-        } else if (strategy == Strategy.DEFENSIVE) {
-            // ........
-        } else {
-            // .......
-        }
 
+
+    @Override
+    public void takeDamage(int damage) { // это для 2-ого файтера
+        super.takeDamage(damage);
     }
 
     @Override
-    public int calculateDamage(Fighter other) {
-        return super.calculateDamage(other);
+    public int calculateDamage(Fighter other) { // тот кто наносит урон
+        LuckyFighter l1 = (LuckyFighter) other;
+        if (l1.getStamina() >= 2) {
+            if (strategy == Strategy.AGGRESSIVE) {
+                System.out.println("Урон нанесен, агрессия");
+                return 3;
+            } else if (l1.getStrategy() == Strategy.DEFENSIVE) {
+                System.out.println("Урон нанесен, защита");
+                return 2;
+            }
+        }
+        else if (other.getStamina() == 1) {
+            return 1;
+        }
+            return 0;
+
     }
 
     @Override
