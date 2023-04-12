@@ -12,10 +12,14 @@ public class ColoredPoints extends Points{
         this.colorPoint = colorPoint;
     }
 
-
     @Override
     public String toString() {
-        return "color: " + colorPoint +
-                "position: " + getX() + " " + getY() + " " + getZ();
+        return super.toString() + " " + colorPoint  ;
     }
+
+    //    @Override
+//    public String toString() {
+//        return "color: " + colorPoint +
+//                "position: " + getX() + " " + getY() + " " + getZ();
+//    }
 }
